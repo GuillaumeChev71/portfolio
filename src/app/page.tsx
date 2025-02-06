@@ -120,10 +120,10 @@ export default function Page() {
                   Mes projets
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
+                  Jetez un œil à mes apps 👀
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                 Voici quelques-uns de mes derniers projets.
+                  Voici quelques-uns de mes derniers projets.
                 </p>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function Page() {
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
-                  with a direct question on twitter
+                with a direct question on twitter
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
               </p>
