@@ -135,7 +135,7 @@ export const DATA = {
     {
       title: "Ma SR 58",
       href: "https://play.google.com/store/apps/details?id=com.expo.masecurite",
-      dates: " - Present",
+      dates: "Mai 2024 - Août 2024",
       active: true,
       description:
         "Application Mobile permettant d'analyser les trajets routiers.",
@@ -153,8 +153,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      image: "/maSR.png",
+      video: "",
     },
   ],
   hackathons: [],

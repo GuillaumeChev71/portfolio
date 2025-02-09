@@ -161,10 +161,7 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
-                with a direct question on twitter
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
+              Tu veux discuter ? Envoie-moi juste un DM sur Insta, c&apos;est là où je suis le plus actif. Je répondrai dès que je peux
               </p>
             </div>
           </BlurFade>
