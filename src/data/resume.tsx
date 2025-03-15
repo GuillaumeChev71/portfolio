@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "",
   description: "Software Engineer",
   summary: "I love building things",
-  avatarUrl: "/me.png",
+  avatarUrl: "/me_nyc.png",
   skills: [
     "React",
     "Next.js",
@@ -85,7 +85,7 @@ export const DATA = {
       start: "Septembre 2021",
       end: "Septembre 2023",
       description:
-        "Développements d'applications internes avec le framework Angular. Travail en méthode agile et organisation de points réguliers avec les correspondants métiers. Utilisation d'une plateforme d'intégration continue pour le déploiement et versionning des applications. (Jenkins et Bitbucket)",
+        "Développements d'applications internes avec le framework Angular. Travail en méthode agile et organisation de points réguliers avec les correspondants métiers. Utilisation d'une plateforme d'intégration continue pour le déploiement et versionning des applications.",
     }
   ],
   education: [
@@ -153,8 +153,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "/maSR.png",
-      video: "",
+      image: "",
+      video: "/masr_video.mp4",
     },
   ],
   hackathons: [],
