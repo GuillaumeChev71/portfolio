@@ -31,8 +31,8 @@ jobs:
 
       - name: Verify build directory
         run: |
-          if [ ! -d "build" ]; then
-            echo "Build directory does not exist. Exiting."
+          if [ ! -d ".next" ]; then
+            echo ".next directory does not exist. Exiting."
             exit 1
           fi
 
@@ -44,7 +44,7 @@ jobs:
           lftp -c "
           open $FTP_HOST
           user $FTP_USERNAME $FTP_PASSWORD
-          mirror -R build /www
+          mirror -R .next /www
           bye
           "
         env:
