@@ -44,7 +44,7 @@ jobs:
           lftp -c "
           open $FTP_HOST
           user $FTP_USERNAME $FTP_PASSWORD
-          mirror -R .next /www
+          mirror -R .next/out /www
           bye
           "
         env:
