@@ -29,6 +29,13 @@ jobs:
         env:
           CI: false
 
+      - name: Verify build directory
+        run: |
+          if [ ! -d "build" ]; then
+            echo "Build directory does not exist. Exiting."
+            exit 1
+          fi
+
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
