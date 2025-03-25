@@ -156,6 +156,27 @@ export const DATA = {
       image: "",
       video: "/masr_video.mp4",
     },
+    {
+      title: "SARL Cartayrade Vellas",
+      href: "http://sarlcartayradevellas.fr",
+      dates: "Janvier 2025",
+      active: true,
+      description:
+        "Site Web de la société SARL Cartayrade Vellas",
+      technologies: [
+        "React",
+        "PHP"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "http://sarlcartayradevellas.fr",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "",
+      video: "/sarl_c.mp4",
+    },
   ],
   hackathons: [],
 } as const;
