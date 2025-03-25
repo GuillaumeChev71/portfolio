@@ -29,10 +29,13 @@ jobs:
         env:
           CI: false
 
-      - name: Verify build directory
+      - name: Export static files
+        run: pnpm run export
+
+      - name: Verify out directory
         run: |
-          if [ ! -d ".next" ]; then
-            echo ".next directory does not exist. Exiting."
+          if [ ! -d "out" ]; then
+            echo "Out directory does not exist. Exiting."
             exit 1
           fi
 
@@ -44,7 +47,7 @@ jobs:
           lftp -c "
           open $FTP_HOST
           user $FTP_USERNAME $FTP_PASSWORD
-          mirror -R .next /www
+          mirror -R out /www
           bye
           "
         env:
