@@ -6,6 +6,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import { global } from "styled-jsx/css";
 
 type Metadata = {
   title: string;
@@ -19,11 +20,10 @@ function getMDXFiles(dir: string) {
 }
 
 export async function markdownToHTML(markdown: string) {
-  const p = await unified()
+  const processed = await unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
-      // https://rehype-pretty.pages.dev/#usage
       theme: {
         light: "min-light",
         dark: "min-dark",
@@ -33,14 +33,16 @@ export async function markdownToHTML(markdown: string) {
     .use(rehypeStringify)
     .process(markdown);
 
-  return p.toString();
+  // ✅ Ajout d'un wrapper avec la classe .mdx-content
+  return `<div class="mdx-content">${processed.toString()}</div>`;
 }
 
 export async function getPost(slug: string) {
   const filePath = path.join("content", `${slug}.mdx`);
-  let source = fs.readFileSync(filePath, "utf-8");
+  const source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);
+
   return {
     source: content,
     metadata,
@@ -49,12 +51,11 @@ export async function getPost(slug: string) {
 }
 
 async function getAllPosts(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
+  const mdxFiles = getMDXFiles(dir);
   return Promise.all(
     mdxFiles.map(async (file) => {
-      
-      let slug = path.basename(file, path.extname(file));
-      let { metadata, source } = await getPost(slug);
+      const slug = path.basename(file, path.extname(file));
+      const { metadata, source } = await getPost(slug);
       return {
         metadata,
         slug,
