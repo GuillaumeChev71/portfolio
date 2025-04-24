@@ -41,12 +41,6 @@ export default async function BlogPage() {
                   </p>
                 </div>
               </Link>
-              <a
-                href={`/api/download/${post.slug}`}
-                className="text-xs text-blue-600 hover:underline mb-4"
-              >
-                <Download className="w-4 h-4 -mt-[25px]" />
-              </a>
             </div>
           </BlurFade>
         ))}
