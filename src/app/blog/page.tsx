@@ -1,6 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
+import { Download } from "lucide-react";
 
 export const metadata = {
   title: "Blog",
@@ -41,11 +42,10 @@ export default async function BlogPage() {
                 </div>
               </Link>
               <a
-                href={`/posts/${post.slug}.mdx`}
-                download
+                href={`/api/download/${post.slug}`}
                 className="text-xs text-blue-600 hover:underline mb-4"
               >
-                Télécharger le fichier .mdx
+                <Download className="w-4 h-4 -mt-[25px]" />
               </a>
             </div>
           </BlurFade>
