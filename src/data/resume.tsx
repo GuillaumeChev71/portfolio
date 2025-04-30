@@ -19,7 +19,9 @@ export const DATA = {
     "Symfony",
     "React Native",
     "TailwindCSS",
-    "PostgreSQL"
+    "PostgreSQL",
+    "PHP",
+    "Python"
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -61,7 +63,7 @@ export const DATA = {
       start: "Novembre 2024",
       end: "Aujourd'hui",
       description:
-        "Actuellement en mission chez le client Eminence, je suis en charge de la maintenance et de l'évolution des applications qui composent le SI de l'entreprise. Technologies utilisées : Php, Symfony, SQL, Javascript, Git, etc.",
+        "Maintenance et évolution du système d’information interne. Intégration de flux de données internes et externes. Automatisation de processus internes. Stack : PHP, Symfony, SQL, JavaScript, Git, GitHub",
     },
     {
       company: "ITGC",
@@ -73,7 +75,7 @@ export const DATA = {
       start: "Avril 2022",
       end: "Aujourd'hui",
       description:
-        "Développements de plusieurs applications web et mobiles pour des clients variés. Utilisation de React, Next.js, Node.js, Typescript, TailwindCSS, PostgreSQL, Docker, Kubernetes, AWS, Firebase, etc.",
+        "Conception d’architectures scalables basées sur Next.js et Node.js. Création d’APIs REST et gestion de bases relationnelles (PostgreSQL). Design system modulaire avec TailwindCSS et composants réutilisables. Déploiement cloud et CI/CD (GitHub Actions). Projets significatifs : app de wishlist, outil d’analyse de trajets, site vitrine",
     },
     {
       company: "Caisse d'Epargne BFC",
@@ -85,7 +87,7 @@ export const DATA = {
       start: "Septembre 2021",
       end: "Septembre 2023",
       description:
-        "Développements d'applications internes avec le framework Angular. Travail en méthode agile et organisation de points réguliers avec les correspondants métiers. Utilisation d'une plateforme d'intégration continue pour le déploiement et versionning des applications.",
+        "Recueil des besoins métiers via ateliers de co-conception. Rédaction de documentations fonctionnelles sous Confluence. Gestion de projet via Jira et SuitePro-G. Modélisation de données sous Oracle. Interfaces AngularJS, Angular 9 & 15. API serveur en PHP avec Doctrine ORM. UI avec Material Design et KendoUI. Suivi de recette, MEP, support technique. Git/Bitbucket, documentation technique",
     }
   ],
   education: [

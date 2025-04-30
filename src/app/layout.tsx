@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,7 +55,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en" suppressHydrationWarning>
+      
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -68,6 +71,12 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
       </body>
+      <Script
+        defer
+        data-project="680f69468ae3ba03dc0234ae"
+        src="https://cdn.jsdelivr.net/gh/litlyx/litlyx-js/browser/litlyx.js"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
