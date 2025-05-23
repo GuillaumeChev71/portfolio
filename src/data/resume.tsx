@@ -177,7 +177,7 @@ export const DATA = {
         }
       ],
       image: "",
-      video: "/sarl_c.mp4",
+      video: "/sarl.mp4",
     },
   ],
   hackathons: [],
