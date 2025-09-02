@@ -59,7 +59,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Consultant Informatique",
-      logoUrl: "/klanik.png",
+      logoUrl: "/kk.jpeg",
       start: "Novembre 2024",
       end: "Aujourd'hui",
       description:

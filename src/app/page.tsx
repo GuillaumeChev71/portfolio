@@ -1,3 +1,5 @@
+"use client";
+
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -8,12 +10,16 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import DarkVeil from "@/components/DarkVeil";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
+      <div className="fixed inset-0 -z-10">
+        <DarkVeil />
+      </div>
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -161,7 +167,7 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Tu veux discuter ? Envoie-moi juste un DM sur Instagram ou LinkedIn, c&apos;est là où je suis le plus actif. Je répondrai dès que je peux
+                Tu veux discuter ? Envoie-moi juste un DM sur Instagram ou LinkedIn, c&apos;est là où je suis le plus actif. Je répondrai dès que je peux
               </p>
             </div>
           </BlurFade>
