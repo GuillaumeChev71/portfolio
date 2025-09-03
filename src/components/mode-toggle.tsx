@@ -7,6 +7,8 @@ import { useTheme } from "next-themes";
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
+  setTheme("dark");
+
   return (
     <Button
       variant="ghost"
