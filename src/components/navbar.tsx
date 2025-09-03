@@ -36,7 +36,7 @@ export default function Navbar() {
             </Tooltip>
           </DockIcon>
         ))}
-        <Separator orientation="vertical" className="h-full" />
+        {/* <Separator orientation="vertical" className="h-full" /> */}
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)
           .map(([name, social]) => (
@@ -59,8 +59,8 @@ export default function Navbar() {
               </Tooltip>
             </DockIcon>
           ))}
-        <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
+        {/* <Separator orientation="vertical" className="h-full py-2" /> */}
+        {/* <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>
               <ModeToggle />
@@ -69,7 +69,7 @@ export default function Navbar() {
               <p>Theme</p>
             </TooltipContent>
           </Tooltip>
-        </DockIcon>
+        </DockIcon> */}
       </Dock>
     </div>
   );
