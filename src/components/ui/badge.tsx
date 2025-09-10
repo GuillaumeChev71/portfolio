@@ -1,5 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -25,9 +26,19 @@ const badgeVariants = cva(
 
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+    VariantProps<typeof badgeVariants> {
+  href?: string
+}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, href, ...props }: BadgeProps) {
+  if (href) {
+    return (
+      <Link href={href} className={cn(badgeVariants({ variant }), className)}>
+        {props.children}
+      </Link>
+    )
+  }
+  
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props} />
   )

@@ -11,6 +11,7 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import DarkVeil from "@/components/DarkVeil";
+import { CalendarIcon } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -47,7 +48,7 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold"> À propos</h2>
+          <h2 className="text-xl font-bold"> Votre partenaire tech sur abonnement</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
@@ -110,8 +111,8 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                <Badge href={skill.href}>{skill.name}</Badge>
               </BlurFade>
             ))}
           </div>
@@ -167,8 +168,12 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Tu veux discuter ? Envoie-moi juste un DM sur Instagram ou LinkedIn, c&apos;est là où je suis le plus actif. Je répondrai dès que je peux
+                Vous voulez discuter de vôtre projet ? Réservez un appel de 45 minutes ici 👇
               </p>
+               <Link className="mt-3 rounded-lg bg-foreground text-background px-6 py-3 text-lg inline-flex items-center gap-2" href={"https://calendly.com/guillaumechevallier71/30min?back=1&month=2025-09"}>
+                 <CalendarIcon className="w-5 h-5" />
+                 Calendly
+               </Link>
             </div>
           </BlurFade>
         </div>
