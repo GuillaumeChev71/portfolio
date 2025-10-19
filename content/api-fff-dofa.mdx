@@ -1,0 +1,160 @@
+---
+title: "API Données ouvertes du Football Amateur FFF"
+publishedAt: "2025-10-19"
+summary: "Documentation de l'API sur les Données ouvertes du Football Amateur de la Fédération Française de Football"
+---
+
+# Fédération Française de Football – API Documentation
+
+> Base URL : `https://api-dofa.fff.fr`
+
+## Table des matières
+- [ArbitreApi](#arbitreapi)
+- [ArbitreOfficielCategorieApi](#arbitreofficielcategorieapi)
+- [CalculBilanSaisonApi](#calculbilansaisonapi)
+- [CalculMatchHistoApi](#calculmatchhistoapi)
+- [CalculSerieCoursApi](#calculseriecoursapi)
+- [CdgApi](#cdgapi)
+- [ClassementJourneeApi](#classementjourneeapi)
+- [ClubApi](#clubapi)
+- [CompetApi](#competapi)
+- [DossierApi](#dossierapi)
+- [EngagementApi](#engagementapi)
+- [EquipeApi](#equipeapi)
+- [IndividuApi](#individuapi)
+- [MatchEntityApi](#matchentityapi)
+- [MatchFeuilleApi](#matchfeuilleapi)
+- [MatchMembreApi](#matchmembreapi)
+- [OfficielCategorieApi](#officielcategorieapi)
+- [PhaseApi](#phaseapi)
+- [PouleApi](#pouleapi)
+- [PouleJourneeApi](#poulejourneeapi)
+
+---
+
+## ArbitreApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/arbitres` | Retrieves the collection of Arbitre resources. |
+| GET | `/api/arbitres/{inNo}` | Retrieves a single Arbitre resource. |
+
+## ArbitreOfficielCategorieApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/arbitre_officiel_categories` | Retrieves the collection of ArbitreOfficielCategorie resources. |
+| GET | `/api/arbitre_officiel_categories/{id}` | Retrieves a single ArbitreOfficielCategorie resource. |
+
+## CalculBilanSaisonApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/calcul_bilan_saisons` | Retrieves the collection of CalculBilanSaison resources. |
+| GET | `/api/calcul_bilan_saisons/{id}` | Retrieves a single CalculBilanSaison resource. |
+
+## CalculMatchHistoApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/calcul_match_histos` | Retrieves the collection of CalculMatchHisto resources. |
+| GET | `/api/calcul_match_histos/{id}` | Retrieves a single CalculMatchHisto resource. |
+
+## CalculSerieCoursApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/calcul_serie_cours` | Retrieves the collection of CalculSerieCours resources. |
+| GET | `/api/calcul_serie_cours/{id}` | Retrieves a single CalculSerieCours resource. |
+
+## CdgApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/cdgs` | Retrieves the collection of Cdg resources. |
+| GET | `/api/cdgs/{cgNo}` | Retrieves a single Cdg resource. |
+
+## ClassementJourneeApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/classement_journees` | Retrieves a Compet resource. |
+
+## ClubApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/clubs` | Retrieves the collection of Club resources. |
+| GET | `/api/clubs/{clNo}` | Retrieves a single Club resource. |
+| GET | `/api/clubs/{clNo}/equipes` | Retrieves a Club's teams (Équipes). |
+
+## CompetApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/compets` | Retrieves the collection of Compet resources. |
+| GET | `/api/compets/{cpNo}` | Retrieves a single Compet resource. |
+| GET | `/api/compets/{cpNo}/phases` | Retrieves phases of a competition. |
+
+## DossierApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/dossiers` | Retrieves the collection of Dossier resources. |
+| GET | `/api/dossiers/{dsNo}` | Retrieves a single Dossier resource. |
+
+## EngagementApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/engagements` | Retrieves the collection of Engagement resources. |
+| GET | `/api/clubs/{clNo}/equipes/{equipes}/engagements` | Retrieves engagements for a team. |
+
+## EquipeApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/clubs/{clNo}/equipes` | Retrieves the teams of a club. |
+| GET | `/api/clubs/{clNo}/equipes/{equipes}/engagements` | Retrieves team engagements. |
+| GET | `/api/clubs/{clNo}/equipes/{equipes}/matchs` | Retrieves matches of a team. |
+
+## IndividuApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/individus/{inNo}` | Retrieves a single Individu resource. |
+
+## MatchEntityApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/match_entities` | Retrieves all match entities. |
+| GET | `/api/match_entities/{maNo}` | Retrieves a specific match entity. |
+| GET | `/api/clubs/{clNo}/matchs` | Retrieves matches of a club. |
+| GET | `/api/clubs/{clNo}/calendrier` | Retrieves club calendar. |
+| GET | `/api/clubs/{clNo}/resultat` | Retrieves club results. |
+| GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/matchs` | Retrieves matches of a competition. |
+| GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/resultat` | Retrieves results of a competition. |
+| GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/calendrier` | Retrieves competition calendar. |
+
+## MatchFeuilleApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/match_feuilles` | Retrieves all match sheets (feuilles de match). |
+| GET | `/api/match_feuilles/{cfmNo}` | Retrieves a specific match sheet. |
+
+## MatchMembreApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/match_membres` | Retrieves the collection of MatchMembre resources. |
+
+## OfficielCategorieApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/officiel_categories` | Retrieves the collection of OfficielCategorie resources. |
+| GET | `/api/officiel_categories/{id}` | Retrieves a single OfficielCategorie resource. |
+
+## PhaseApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/phases` | Retrieves all phases. |
+| GET | `/api/compets/{cpNo}/phases` | Retrieves competition phases. |
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules` | Retrieves competition groups (poules). |
+
+## PouleApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules` | Retrieves competition groups. |
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/classement_journees` | Retrieves day rankings. |
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/poule_journees` | Retrieves match days of a poule. |
+
+## PouleJourneeApi
+| Method | Endpoint | Description |
+|---------|-----------|-------------|
+| GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/poule_journees` | Retrieves competition match days. |

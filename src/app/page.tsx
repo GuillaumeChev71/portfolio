@@ -170,10 +170,10 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Vous voulez discuter de vôtre projet ? Réservez un appel de 45 minutes ici 👇
               </p>
-               <Link className="mt-3 rounded-lg bg-foreground text-background px-6 py-3 text-lg inline-flex items-center gap-2" href={"https://calendly.com/guillaumechevallier71/30min?back=1&month=2025-09"}>
-                 <CalendarIcon className="w-5 h-5" />
-                 Calendly
-               </Link>
+              <Link className="mt-3 rounded-lg bg-foreground text-background px-6 py-3 text-lg inline-flex items-center gap-2" href={"https://calendly.com/guillaumechevallier71/30min?back=1&month=2025-09"}>
+                <CalendarIcon className="w-5 h-5" />
+                Calendly
+              </Link>
             </div>
           </BlurFade>
         </div>
