@@ -42,6 +42,7 @@ jobs:
       - name: Deploy using lftp
         run: |
           lftp -c "
+          set ssl:verify-certificate no
           open $FTP_HOST
           user $FTP_USERNAME $FTP_PASSWORD
           mirror -R out /public_html
