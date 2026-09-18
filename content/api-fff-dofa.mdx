@@ -20,7 +20,7 @@ Bienvenue ! Ci-dessous une version plus lisible et « friendly » de la document
 
 - Arbitres · Clubs · Équipes · Matchs
 - Phases · Poules · Classements
-- Feuilles de match · Membres · Officiels
+- Feuilles de match · Membres · Officiels · Terrains
 
 Vous pouvez cliquer sur une section pour voir les endpoints et leurs descriptions.
 
@@ -39,6 +39,10 @@ Courte description : liste et fiche détaillée des arbitres.
 
 </details>
 
+**URL à tester** : 
+- Collection : `https://api-dofa.fff.fr/api/arbitres?saison=2025`
+- Détail : `https://api-dofa.fff.fr/api/arbitres/75189611`
+
 ## Catégories officielles d'arbitres
 Courte description : listes des catégories/grades officiels.
 
@@ -52,6 +56,8 @@ Courte description : listes des catégories/grades officiels.
 
 </details>
 
+**URL à tester** : `https://api-dofa.fff.fr/api/arbitre_officiel_categories`
+
 ## Bilans saisonniers
 Synthèse calculée des saisons.
 
@@ -64,6 +70,8 @@ Synthèse calculée des saisons.
 | GET | `/api/calcul_bilan_saisons/{id}` | Récupère un bilan saisonnier spécifique. |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/calcul_bilan_saisons?saison=2025`
 
 ## Historique matchs / Séries en cours
 
@@ -79,6 +87,8 @@ Synthèse calculée des saisons.
 
 </details>
 
+**URL à tester** : `https://api-dofa.fff.fr/api/calcul_match_histos?saison=2025`
+
 ## Centres de gestion (CDG)
 
 <details>
@@ -91,6 +101,10 @@ Synthèse calculée des saisons.
 
 </details>
 
+**URL à tester** : 
+- Collection : `https://api-dofa.fff.fr/api/cdgs`
+- Détail : `https://api-dofa.fff.fr/api/cdgs/127`
+
 ## Classements par journée
 
 <details>
@@ -101,6 +115,8 @@ Synthèse calculée des saisons.
 | GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/classement_journees` | Classement par journée pour une poule. |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/compets/453837/phases/1/poules/4/classement_journees?saison=2025`
 
 ## Clubs
 Informations générales sur les clubs et lien vers leurs équipes.
@@ -116,6 +132,10 @@ Informations générales sur les clubs et lien vers leurs équipes.
 
 </details>
 
+**URL à tester** : 
+- Collection : `https://api-dofa.fff.fr/api/clubs?saison=2025`
+- Détail : `https://api-dofa.fff.fr/api/clubs/222`
+
 ## Compétitions et Phases
 
 <details>
@@ -130,6 +150,10 @@ Informations générales sur les clubs et lien vers leurs équipes.
 
 </details>
 
+**URL à tester** : 
+- Collection : `https://api-dofa.fff.fr/api/compets?saison=2025`
+- Détail : `https://api-dofa.fff.fr/api/compets/453837`
+
 ## Dossiers administratifs
 
 <details>
@@ -142,6 +166,8 @@ Informations générales sur les clubs et lien vers leurs équipes.
 
 </details>
 
+**URL à tester** : `https://api-dofa.fff.fr/api/dossiers?saison=2025`
+
 ## Engagements (inscriptions)
 
 <details>
@@ -153,6 +179,8 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/clubs/{clNo}/equipes/{equipes}/engagements` | Récupère les engagements d'une équipe. |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/clubs/222/equipes/1/engagements?saison=2025`
 
 ## Équipes
 
@@ -167,6 +195,10 @@ Informations générales sur les clubs et lien vers leurs équipes.
 
 </details>
 
+**URL à tester** : 
+- Club : `https://api-dofa.fff.fr/api/clubs/222/equipes`
+- Équipe : `https://api-dofa.fff.fr/api/clubs/222/equipes/1`
+
 ## Individus
 
 <details>
@@ -177,6 +209,8 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/individus/{inNo}` | Récupère un individu (joueur, dirigeant, officiel). |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/individus/75189611`
 
 ## Matchs, calendriers et résultats
 
@@ -190,11 +224,18 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/clubs/{clNo}/matchs` | Matchs d'un club. |
 | GET | `/api/clubs/{clNo}/calendrier` | Calendrier d'un club. |
 | GET | `/api/clubs/{clNo}/resultat` | Résultats d'un club. |
+| GET | `/api/clubs/{clNo}/equipes/{eqNo}/calendrier` | Calendrier d'une équipe. |
+| GET | `/api/clubs/{clNo}/equipes/{eqNo}/resultat` | Résultats d'une équipe. |
 | GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/matchs` | Matchs d'une poule. |
 | GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/resultat` | Résultats d'une poule. |
 | GET | `/api/compets/{cpNo}/phases/{phNo}/poules/{gpNo}/calendrier` | Calendrier d'une poule. |
 
 </details>
+
+**URL à tester** : 
+- Collection : `https://api-dofa.fff.fr/api/match_entities?saison=2025`
+- Détail : `https://api-dofa.fff.fr/api/match_entities/79287562`
+- Club : `https://api-dofa.fff.fr/api/clubs/222/matchs?saison=2025`
 
 ## Feuilles de match
 
@@ -208,6 +249,8 @@ Informations générales sur les clubs et lien vers leurs équipes.
 
 </details>
 
+**URL à tester** : `https://api-dofa.fff.fr/api/match_feuilles?saison=2025`
+
 ## Membres de match
 
 <details>
@@ -218,6 +261,8 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/match_membres` | Récupère la collection de membres (joueurs, officiels présents sur feuille). |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/match_membres?saison=2025`
 
 ## Catégories d'officiels
 
@@ -230,6 +275,21 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/officiel_categories/{id}` | Détail d'une catégorie d'officiel. |
 
 </details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/officiel_categories`
+
+## Terrains
+
+<details>
+<summary>Voir Terrains</summary>
+
+| Méthode | Endpoint | Description |
+|--------:|---------:|:-----------|
+| GET | `/api/terrains/{teNo}` | Récupère un terrain par `teNo`. |
+
+</details>
+
+**URL à tester** : `https://api-dofa.fff.fr/api/terrains/692660601`
 
 ## Phases & Poules
 
@@ -244,6 +304,46 @@ Informations générales sur les clubs et lien vers leurs équipes.
 | GET | `/api/compets/{cpNo}/phases/{phases}/poules/{poules}/poule_journees` | Journées d'une poule. |
 
 </details>
+
+**URL à tester** : 
+- Phases d'une compétition : `https://api-dofa.fff.fr/api/compets/453837/phases`
+- Poules d'une phase : `https://api-dofa.fff.fr/api/compets/453837/phases/1/poules`
+- Journées : `https://api-dofa.fff.fr/api/compets/453837/phases/1/poules/4/poule_journees`
+
+---
+
+### Client Python `api-client-fff`
+
+Un client Python généré automatiquement via Swagger est disponible sur PyPI : [api-client-fff](https://pypi.org/project/api-client-fff/) (v0.1.5, licence LGPLv3+, auteur Thibault Falque). Il requiert Python ≥ 3.10 et aucune authentification n'est nécessaire pour les endpoints.
+
+Installation :
+
+```bash
+pip install api-client-fff
+```
+
+Exemple d'utilisation :
+
+```python
+import apifff
+from apifff.rest import ApiException
+from pprint import pprint
+
+# Collection d'arbitres (paginée)
+api = apifff.ArbitreApi(apifff.ApiClient(apifff.Configuration()))
+try:
+    pprint(api.get_arbitre_collection(page=1))
+except ApiException as e:
+    print("Exception: %s" % e)
+
+# Fiche arbitre par identifiant
+try:
+    pprint(api.get_arbitre_item(in_no="..."))
+except ApiException as e:
+    print("Exception: %s" % e)
+```
+
+Tous les endpoints listés ci-dessus exposent une classe `*Api` correspondante (par ex. `ClubApi`, `MatchEntityApi`, `TerrainApi`) avec des méthodes `get_*_collection` / `get_*_item`.
 
 ---
 
