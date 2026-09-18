@@ -17,6 +17,7 @@ export const DATA = {
     { name: "Node.js", href: "https://nodejs.org" },
     { name: "Angular", href: "https://angular.io" },
     { name: "Symfony", href: "https://symfony.com" },
+    { name: "Laravel", href: "https://laravel.com" },
     { name: "React Native", href: "https://reactnative.dev" },
     { name: "TailwindCSS", href: "https://tailwindcss.com" },
     { name: "PostgreSQL", href: "https://www.postgresql.org" },
@@ -53,6 +54,19 @@ export const DATA = {
   },
 
   work: [
+
+    {
+      company: "Atol CD",
+      href: "",
+      badges: [],
+      location: "Remote",
+      title: "Software Engineer",
+      logoUrl: "/atol.png",
+      start: "Novembre 2025",
+      end: "Aujourd'hui",
+      description:
+        "Conception et développement d'applications métiers sur mesure pour les secteurs de l'agro-alimentaire et de l'agriculture, de l'analyse du besoin à la mise en production. Mise en place de solutions robustes et évolutives adaptées aux contraintes métier. Stack : PHP, Symfony, Laravel, PostgreSQL, Vue3, React",
+    },
     {
       company: "Klanik",
       href: "",
@@ -61,7 +75,7 @@ export const DATA = {
       title: "Consultant Informatique",
       logoUrl: "/kk.jpeg",
       start: "Novembre 2024",
-      end: "Aujourd'hui",
+      end: "Novembre 2025",
       description:
         "Maintenance et évolution du système d’information interne. Intégration de flux de données internes et externes. Automatisation de processus internes. Stack : PHP, Symfony, SQL, JavaScript, Git, GitHub",
     },
