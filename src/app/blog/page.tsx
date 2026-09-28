@@ -5,7 +5,11 @@ import { Download } from "lucide-react";
 
 export const metadata = {
   title: "Blog",
-  description: "My thoughts on software development, life, and more.",
+  description:
+    "Articles sur le développement logiciel, l'automatisation et les outils sur mesure par Guillaume Chevallier, développeur freelance.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const BLUR_FADE_DELAY = 0.04;
