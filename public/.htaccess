@@ -1,0 +1,19 @@
+RewriteEngine On
+DirectorySlash Off
+
+# /chemin/ -> /chemin (301), sauf la racine
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# URL sans extension servie par le fichier .html correspondant (ex. /blog/cv)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [L]
+
+# URL de dossier servie par le .html adjacent (ex. /blog -> blog.html)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [L]
+
+ErrorDocument 404 /404.html

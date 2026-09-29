@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.name}`,
   },
   description:
-    "Guillaume Chevallier, développeur logiciel freelance à Montpellier. Automatisation, outils sur mesure et développement web (Next.js, React, Symfony, Laravel) sur abonnement mensuel.",
+    "Guillaume Chevallier, développeur logiciel freelance. Automatisation, outils sur mesure et développement web",
   keywords: [
     "développeur freelance",
     "développeur logiciel Montpellier",
@@ -86,15 +86,13 @@ function StructuredData() {
         jobTitle: "Développeur logiciel freelance",
         description:
           "Développeur logiciel freelance spécialisé dans l'automatisation et les outils sur mesure pour entreprises.",
-        email: `mailto:${DATA.contact.email}`,
+        email: DATA.contact.email,
         address: {
           "@type": "PostalAddress",
           addressLocality: "Montpellier",
           addressCountry: "FR",
         },
-        sameAs: Object.values(DATA.contact.social).map(
-          (social) => social.url
-        ),
+        sameAs: Object.values(DATA.contact.social).map((social) => social.url),
         knowsAbout: DATA.skills.map((skill) => skill.name),
       },
       {
@@ -137,13 +135,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    
     <html lang="fr" suppressHydrationWarning>
-      
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <StructuredData />
