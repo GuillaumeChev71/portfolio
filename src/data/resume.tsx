@@ -2,15 +2,23 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Guillaume C.",
-  initials: "GC",
+  name: "ITGC",
+  initials: "IT",
   url: "https://itgcdev.fr",
   location: "Montpellier, FR",
   locationLink: "",
-  description: "Software Engineer",
-  summary: "Automatisez et optimisez vos processus métiers avec un abonnement mensuel de développement logiciel sur mesure. Que ce soit pour automatiser des tâches répétitives, créer des outils personnalisés ou améliorer vos workflows existants, je vous propose des solutions techniques claires et évolutives, adaptées à vos besoins.",
-  avatarUrl: "/me_nyc.png",
+  description:
+    "Studio de développement logiciel : automatisation de vos processus métiers, outils sur mesure et intégration de données, du cadrage à la mise en production.",
+  summary:
+    "ITGC est un studio de développement logiciel qui aide les entreprises à gagner du temps et en fiabilité. Nous concevons des outils sur mesure, automatisons les tâches répétitives et intégrons vos flux de données dans des solutions claires et évolutives — un partenaire technique dédié, du cadrage jusqu'à la maintenance.",
+  avatarUrl: "/logo.png",
   skills: [
+    { name: "Automatisation de processus", href: "" },
+    { name: "Développement web sur mesure", href: "" },
+    { name: "Intégration de données", href: "" },
+    { name: "Applications mobiles", href: "" },
+    { name: "APIs & architectures scalables", href: "" },
+    { name: "CI/CD & DevOps", href: "" },
     { name: "React", href: "https://react.dev" },
     { name: "Next.js", href: "https://nextjs.org" },
     { name: "Typescript", href: "https://www.typescriptlang.org" },
@@ -22,7 +30,7 @@ export const DATA = {
     { name: "TailwindCSS", href: "https://tailwindcss.com" },
     { name: "PostgreSQL", href: "https://www.postgresql.org" },
     { name: "PHP", href: "https://www.php.net" },
-    { name: "Python", href: "https://www.python.org" }
+    { name: "Python", href: "https://www.python.org" },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -54,73 +62,78 @@ export const DATA = {
   },
 
   work: [
-
     {
-      company: "Atol CD",
+      company: "Eminence",
       href: "",
-      badges: [],
+      badges: ["Mission client"],
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/atol.png",
-      start: "Novembre 2025",
-      end: "Aujourd'hui",
-      description:
-        "Conception et développement d'applications métiers sur mesure pour les secteurs de l'agro-alimentaire et de l'agriculture, de l'analyse du besoin à la mise en production. Mise en place de solutions robustes et évolutives adaptées aux contraintes métier. Stack : PHP, Symfony, Laravel, PostgreSQL, Vue3, React",
-    },
-    {
-      company: "Klanik",
-      href: "",
-      badges: [],
-      location: "Remote",
-      title: "Consultant Informatique",
-      logoUrl: "/kk.jpeg",
+      title: "Maintenance & évolution du SI",
+      logoUrl: "/clients/eminence.png",
       start: "Novembre 2024",
       end: "Novembre 2025",
       description:
-        "Maintenance et évolution du système d’information interne. Intégration de flux de données internes et externes. Automatisation de processus internes. Stack : PHP, Symfony, SQL, JavaScript, Git, GitHub",
+        "Maintenance et évolution du système d’information interne, intégration de flux de données internes et externes, automatisation de processus internes. Stack : PHP, Symfony, SQL, JavaScript, Git, GitHub",
     },
     {
-      company: "ITGC",
-      badges: [],
+      company: "Atol CD",
       href: "",
+      badges: ["Mission client"],
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/logo.png",
-      start: "Avril 2022",
+      title: "Applications métiers sur mesure",
+      logoUrl: "/clients/atolcd.png",
+      start: "Novembre 2025",
       end: "Aujourd'hui",
       description:
-        "Conception d’architectures scalables basées sur Next.js et Node.js. Création d’APIs REST et gestion de bases relationnelles (PostgreSQL). Design system modulaire avec TailwindCSS et composants réutilisables. Déploiement cloud et CI/CD (GitHub Actions). Projets significatifs : app de wishlist, outil d’analyse de trajets, site vitrine",
+        "Conception et développement d'applications métiers sur mesure pour les secteurs de l'agro-alimentaire et de l'agriculture, de l'analyse du besoin à la mise en production. Stack : PHP, Symfony, Laravel, PostgreSQL, Vue3, React",
     },
     {
       company: "Caisse d'Epargne BFC",
       href: "",
-      badges: [],
+      badges: ["Mission client"],
       location: "Dijon, FR",
-      title: "Développeur Fullstack",
-      logoUrl: "/cebfc.png",
+      title: "Système d'information bancaire",
+      logoUrl: "/clients/cebfc.png",
       start: "Septembre 2021",
       end: "Septembre 2023",
       description:
-        "Recueil des besoins métiers via ateliers de co-conception. Rédaction de documentations fonctionnelles sous Confluence. Gestion de projet via Jira et SuitePro-G. Modélisation de données sous Oracle. Interfaces AngularJS, Angular 9 & 15. API serveur en PHP avec Doctrine ORM. UI avec Material Design et KendoUI. Suivi de recette, MEP, support technique. Git/Bitbucket, documentation technique",
-    }
-  ],
-  education: [
-    {
-      school: "Université de Bourgogne",
-      href: "",
-      degree: "Master Informatique Bases de Données et Intelligence Artificielle",
-      logoUrl: "/ub.png",
-      start: "2021",
-      end: "2023",
+        "Recueil des besoins métiers via ateliers de co-conception. Documentation fonctionnelle sous Confluence, gestion de projet via Jira et SuitePro-G. Modélisation de données sous Oracle. Interfaces AngularJS, Angular 9 & 15, API serveur en PHP avec Doctrine ORM. Suivi de recette, MEP et support technique.",
     },
     {
-      school: "Université de Bourgogne",
+      company: "Sécurité Routière",
       href: "",
-      degree: "Licence Informatique",
-      logoUrl: "/ub.png",
-      start: "2018",
-      end: "2021",
-    }
+      badges: ["Mission client"],
+      location: "Remote",
+      title: "Application mobile d'analyse des trajets routiers",
+      logoUrl: "/clients/SR.jpeg",
+      start: "Mai 2024",
+      end: "Août 2024",
+      description:
+        "Conception et publication d'une application mobile d'analyse des trajets routiers (Ma SR 58), disponible sur Google Play : suivi du parcours, évaluation de la conduite et restitution de statistiques d'usage.",
+    },
+    {
+      company: "CGI",
+      href: "",
+      badges: ["Mission client"],
+      location: "Remote",
+      title: "Développement d'applications métiers",
+      logoUrl: "/clients/cgi.png",
+      start: "2023",
+      end: "",
+      description:
+        "Développement d'applications métiers sur des projets grands comptes : analyse du besoin, implémentation, tests et mise en production au sein d'équipes agile.",
+    },
+    {
+      company: "Orange",
+      href: "",
+      badges: ["Mission client"],
+      location: "Remote",
+      title: "Évolution du système d'information",
+      logoUrl: "/clients/orange.png",
+      start: "2024",
+      end: "",
+      description:
+        "Contribution à l'évolution du système d'information : développement, intégration et maintien en condition opérationnelle d'applications internes.",
+    },
   ],
   projects: [
     {
@@ -129,7 +142,7 @@ export const DATA = {
       dates: "Jan 2025 - Aujourd'hui",
       active: true,
       description:
-        "App web permettant de gérer des wishlists pour divers occasions",
+        "Application web de gestion de wishlists pour diverses occasions, pour particuliers et petites entreprises.",
       technologies: [
         "React",
         "Typescript",
@@ -154,20 +167,20 @@ export const DATA = {
       dates: "Mai 2024 - Août 2024",
       active: true,
       description:
-        "Application Mobile permettant d'analyser les trajets routiers.",
+        "Application mobile d'analyse des trajets routiers, publiée sur Google Play.",
       technologies: [
         "React Native",
         "Typescript",
         "Expo Go",
         "SQLite",
-        "Firebase"
+        "Firebase",
       ],
       links: [
         {
           type: "Google Play",
           href: "https://play.google.com/store/apps/details?id=com.expo.masecurite",
           icon: <Icons.globe className="size-3" />,
-        }
+        },
       ],
       image: "",
       video: "/masr_video.mp4",
@@ -178,17 +191,17 @@ export const DATA = {
       dates: "Janvier 2025",
       active: true,
       description:
-        "Site Web de la société SARL Cartayrade Vellas",
+        "Site vitrine livré clé en main pour une entreprise locale, de la conception à la mise en ligne.",
       technologies: [
         "React",
-        "PHP"
+        "PHP",
       ],
       links: [
         {
           type: "Website",
           href: "http://sarlcartayradevellas.fr",
           icon: <Icons.globe className="size-3" />,
-        }
+        },
       ],
       image: "",
       video: "/sarl.mp4",

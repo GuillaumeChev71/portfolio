@@ -1,0 +1,153 @@
+{
+  "summary": {
+    "health_score": 77,
+    "business_type": "Freelance développeur logiciel (service personnel, offre d'abonnement) — portfolio one-pager + blog, Next.js export statique",
+    "top_findings": [
+      "www.itgcdev.fr sert le site en 200 sans redirection 301 vers le domaine nu — risque de signaux divisés",
+      "og:image de tous les articles de blog en 404 (route /og absente de l'export statique)",
+      "/blog absent du sitemap.xml",
+      "Article hello-world ultra-fin (8 mots, en anglais) mais indexé",
+      "H1 d'accueil sans aucun mot-clé métier"
+    ],
+    "quick_wins": [
+      "Ajouter /blog au sitemap.ts",
+      "Redirection 301 www vers domaine nu chez Hostinger",
+      "URL Calendly sans paramètres ?back=1&month=2025-09",
+      "Nom complet « Guillaume Chevallier » dans le hero et le schema Person",
+      "Retirer Calendly du sameAs du schema Person"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 82,
+      "what_works": [
+        "6/6 URLs en 200, contenu pré-rendu sans JavaScript",
+        "robots.txt et sitemap.xml valides",
+        "Canonicals auto-référents, 301 http->https et slash final",
+        "Vrais 404, Lighthouse SEO 1.0"
+      ],
+      "findings": [
+        {"title": "www.itgcdev.fr duplique le site en 200", "severity": "High", "description": "https://www.itgcdev.fr renvoie 200 avec le contenu complet ; le canonical pointe vers le domaine nu, mais aucune redirection 301 n'existe.", "recommendation": "Configurer une redirection 301 www -> domaine nu chez Hostinger."},
+        {"title": "/blog absent du sitemap", "severity": "High", "description": "sitemap.ts liste l'accueil et 4 articles mais pas le hub /blog, qui est indexé et lié depuis la navbar.", "recommendation": "Ajouter /blog (priority 0.7, weekly) dans src/app/sitemap.ts."},
+        {"title": "En-têtes de sécurité manquants", "severity": "Medium", "description": "Pas de HSTS, X-Content-Type-Options, frame-ancestors, Referrer-Policy ni Permissions-Policy.", "recommendation": "Ajouter les en-têtes via .htaccess ou la config Hostinger."},
+        {"title": "Slug avec underscore et majuscule", "severity": "Low", "description": "/blog/private-policy_MASR58 n'est pas une forme d'URL canonique recommandée.", "recommendation": "Renommer avec 301 vers /blog/politique-de-confidentialite-masr58."}
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 68,
+      "what_works": [
+        "Copy français propre, zéro pattern IA, zéro filler",
+        "Positionnement d'abonnement clair et différenciant",
+        "Article doc API FFF substantiel (1 167 mots)"
+      ],
+      "findings": [
+        {"title": "Article hello-world ultra-fin", "severity": "High", "description": "8 mots extraits, en anglais, indexé et dans le sitemap.", "recommendation": "noindex + retrait du sitemap, ou suppression, ou réécriture."},
+        {"title": "Hub /blog quasi vide", "severity": "Medium", "description": "27 mots, H1 en anglais « Guillaume's Blog », aucune intro.", "recommendation": "H1 FR avec mots-clés + 2-3 phrases d'intro."},
+        {"title": "Article CV redondant avec l'accueil", "severity": "Medium", "description": "Reprend les données resume.tsx déjà affichées sur l'accueil.", "recommendation": "Version téléchargeable (PDF) avec intro unique, ou fusion."},
+        {"title": "E-E-A-T : nom complet absent, téléphone placeholder", "severity": "Medium", "description": "« Guillaume C. » partout ; tel \"+123456789\" dans resume.tsx ; aucun cas client ni témoignage.", "recommendation": "Nom complet dans hero + 2-3 réalisations concrètes + témoignages."},
+        {"title": "Politique de confidentialité MASR58 publiée sous /blog/", "severity": "Medium", "description": "Dilue la thématique du blog.", "recommendation": "Déplacer sous /legal/ avec 301."}
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 74,
+      "what_works": [
+        "Titres et meta descriptions uniques sur les 6 pages",
+        "OG/Twitter complets sur l'accueil",
+        "Robots et directives googlebot corrects"
+      ],
+      "findings": [
+        {"title": "og:image des articles en 404", "severity": "High", "description": "Tous les articles référencent https://itgcdev.fr/og?title=... qui n'existe pas (export statique sans route dynamique) — 404 vérifié.", "recommendation": "Générer des images OG statiques 1200x630 par article et renseigner image dans le frontmatter MDX."},
+        {"title": "H1 d'accueil sans mot-clé", "severity": "Medium", "description": "« Salut, moi c'est Guillaume » + « Software Engineer » : aucun mot-clé métier dans le H1.", "recommendation": "Sous-titre : « Développeur logiciel freelance à Montpellier — automatisation et outils sur mesure »."},
+        {"title": "OG image d'accueil 589 Ko en 512x512", "severity": "Medium", "description": "me_nyc.png trop lourd et format carré non optimal pour les partages.", "recommendation": "1200x630, < 300 Ko."},
+        {"title": "Maillage interne pauvre", "severity": "Medium", "description": "Articles -> uniquement / et /blog ; accueil ne lien vers aucun article.", "recommendation": "Section « Derniers articles » sur l'accueil + CTA contextuel depuis chaque article."}
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 78,
+      "what_works": [
+        "Graphe Person + ProfessionalService + WebSite cohérent avec @id",
+        "BlogPosting sur chaque article",
+        "JSON-LD valide"
+      ],
+      "findings": [
+        {"title": "Person : nom abrégé et Calendly dans sameAs", "severity": "Medium", "description": "name: « Guillaume C. » sans givenName/familyName ; URL Calendly avec paramètres dans sameAs.", "recommendation": "Nom complet + champs givenName/familyName ; retirer Calendly du sameAs."},
+        {"title": "ProfessionalService incomplet", "severity": "Low", "description": "Pas de priceRange ni telephone.", "recommendation": "Ajouter priceRange et téléphone réel."},
+        {"title": "BlogPosting : auteur non lié au graphe", "severity": "Low", "description": "author en nom seul sans @id, pas de rattachement à l'entité Person.", "recommendation": "author: {\"@id\": \"https://itgcdev.fr/#person\"}."}
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 93,
+      "what_works": [
+        "Lighthouse mobile perf 0.96 agrégé, Best Practices 1.0",
+        "TTFB 230 ms, Brotli, fonte préchargée, pas d'image above-the-fold",
+        "Polyfills noModule, JS ~818 Ko bruts"
+      ],
+      "findings": [
+        {"title": "Données terrain indisponibles", "severity": "Info", "description": "PSI quota atteint ; pas de CrUX. Labo uniquement.", "recommendation": "Re-relancer pagespeed_check plus tard ou brancher une clé PSI."},
+        {"title": "me_nyc.png 589 Ko", "severity": "Medium", "description": "Avatar + OG image trop lourds.", "recommendation": "Recompresser ; version 1200x630 pour l'OG."},
+        {"title": "sarl.mp4 33,7 Mo dans public/", "severity": "Low", "description": "Vidéo projet référencée dans resume.tsx.", "recommendation": "Ré-encoder ou héberger sur YouTube/Vimeo."}
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 70,
+      "what_works": [
+        "Contenu servi sans JavaScript (pass P0)",
+        "robots.txt accessible",
+        "Article doc API citable"
+      ],
+      "findings": [
+        {"title": "Pas de /llms.txt", "severity": "Medium", "description": "404 ; le format llmstxt.org ajouterait un point compté Lighthouse et facilite la découverte par les LLM.", "recommendation": "Publier un llms.txt (H1, > summary, liens Markdown)."},
+        {"title": "Pas de Content-Signal ni de version Markdown", "severity": "Low", "description": "Options du standard agentic non implémentées.", "recommendation": "Content-Signal dans robots.txt ; markdown optionnel."}
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 90,
+      "what_works": ["Aucune balise <img> sur le site : zéro problème d'alt/CLS"],
+      "findings": [
+        {"title": "Poids de l'OG/avatar", "severity": "Medium", "description": "me_nyc.png 589 Ko.", "recommendation": "WebP/AVIF recompressé."}
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Corrections critiques", "timeframe": "Semaine 1", "items": [
+        "Redirection 301 www.itgcdev.fr -> itgcdev.fr (Hostinger)",
+        "Ajouter /blog dans src/app/sitemap.ts",
+        "Créer des images OG statiques pour les 4 articles (route /og en 404 aujourd'hui)",
+        "noindex ou suppression de /blog/hello-world"
+      ]},
+      {"name": "Phase 2: Améliorations à fort impact", "timeframe": "Semaines 2-3", "items": [
+        "Sous-titre H1 avec mots-clés sur l'accueil",
+        "Nom complet Guillaume Chevallier dans hero + schema Person (givenName/familyName)",
+        "Retirer Calendly du sameAs ; nettoyer l'URL (?back=1&month=2025-09)",
+        "Maillage interne : section articles sur l'accueil, CTA depuis les articles",
+        "En-têtes de sécurité (HSTS, nosniff, frame-ancestors, Referrer-Policy)",
+        "Recompresser me_nyc.png (avatar + OG 1200x630)"
+      ]},
+      {"name": "Phase 3: Contenu & autorité", "timeframe": "Mois 2", "items": [
+        "Développer le hub /blog (H1 FR, intro, summaries)",
+        "Déplacer la politique MASR58 sous /legal/ avec 301",
+        "Cas clients / résultats mesurables sur l'accueil",
+        "Publier /llms.txt + Content-Signal dans robots.txt",
+        "Backlinks : profils GitHub/LinkedIn vers le site, annuaires freelance, 1-2 articles invités"
+      ]},
+      {"name": "Phase 4: Suivi & itération", "timeframe": "En continu", "items": [
+        "Baseline seo-drift après correction puis diff à chaque déploiement",
+        "Brancher Search Console (google_auth.py) pour indexation + requêtes",
+        "Re-tester PageSpeed quand le quota PSI est libre ; viser 90+ partout",
+        "Ré-encoder sarl.mp4 (33,7 Mo) ou migrer vers YouTube/Vimeo"
+      ]}
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

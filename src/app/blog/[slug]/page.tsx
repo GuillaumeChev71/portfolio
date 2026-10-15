@@ -30,6 +30,12 @@ export async function generateMetadata({
   return {
     title,
     description,
+    ...(post.metadata.noindex && {
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }),
     alternates: {
       canonical: `/blog/${post.slug}`,
     },

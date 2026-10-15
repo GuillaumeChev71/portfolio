@@ -16,21 +16,24 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: `${DATA.name} — Développeur logiciel freelance`,
+    default: `${DATA.name} — Studio de développement logiciel sur mesure`,
     template: `%s | ${DATA.name}`,
   },
   description:
-    "Guillaume Chevallier, développeur logiciel freelance. Automatisation, outils sur mesure et développement web",
+    "ITGC, studio de développement logiciel. Automatisation de processus métiers, outils sur mesure et intégration de données, du cadrage à la mise en production.",
   keywords: [
-    "développeur freelance",
-    "développeur logiciel Montpellier",
+    "studio de développement logiciel",
     "développement web sur mesure",
     "automatisation processus métiers",
+    "développement d'applications sur mesure",
+    "intégration de données",
+    "application mobile sur mesure",
+    "ITGC",
+    "Montpellier",
     "Next.js",
     "React",
     "Symfony",
     "Laravel",
-    "Guillaume Chevallier",
   ],
   authors: [{ name: DATA.name, url: DATA.url }],
   creator: DATA.name,
@@ -38,9 +41,9 @@ export const metadata: Metadata = {
     canonical: DATA.url,
   },
   openGraph: {
-    title: `${DATA.name} — Développeur logiciel freelance`,
+    title: `${DATA.name} — Studio de développement logiciel sur mesure`,
     description:
-      "Automatisez vos processus métiers avec du développement logiciel sur mesure, sur abonnement mensuel.",
+      "Automatisez vos processus métiers avec des outils logiciels sur mesure, conçus pour durer.",
     url: DATA.url,
     siteName: `${DATA.name}`,
     locale: "fr_FR",
@@ -66,9 +69,9 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name} — Développeur logiciel freelance`,
+    title: `${DATA.name} — Studio de développement logiciel sur mesure`,
     description:
-      "Automatisez vos processus métiers avec du développement logiciel sur mesure, sur abonnement mensuel.",
+      "Automatisez vos processus métiers avec des outils logiciels sur mesure, conçus pour durer.",
     card: "summary_large_image",
   },
 };
@@ -78,14 +81,13 @@ function StructuredData() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": `${DATA.url}/#person`,
+        "@type": "Organization",
+        "@id": `${DATA.url}/#organization`,
         name: DATA.name,
         url: DATA.url,
-        image: `${DATA.url}${DATA.avatarUrl}`,
-        jobTitle: "Développeur logiciel freelance",
+        logo: `${DATA.url}${DATA.avatarUrl}`,
         description:
-          "Développeur logiciel freelance spécialisé dans l'automatisation et les outils sur mesure pour entreprises.",
+          "Studio de développement logiciel spécialisé dans l'automatisation de processus, les outils sur mesure et l'intégration de données pour entreprises.",
         email: DATA.contact.email,
         address: {
           "@type": "PostalAddress",
@@ -94,6 +96,11 @@ function StructuredData() {
         },
         sameAs: Object.values(DATA.contact.social).map((social) => social.url),
         knowsAbout: DATA.skills.map((skill) => skill.name),
+        founder: {
+          "@type": "Person",
+          name: "Guillaume Chevallier",
+          jobTitle: "Fondateur & Ingénieur logiciel",
+        },
       },
       {
         "@type": "ProfessionalService",
@@ -101,11 +108,11 @@ function StructuredData() {
         name: DATA.name,
         url: DATA.url,
         description:
-          "Développement logiciel sur mesure sur abonnement mensuel : automatisation de processus, outils personnalisés et amélioration de workflows.",
+          "Développement logiciel sur mesure : automatisation de processus, outils personnalisés et amélioration de workflows.",
         areaServed: "France",
         serviceType: "Développement logiciel",
         provider: {
-          "@id": `${DATA.url}/#person`,
+          "@id": `${DATA.url}/#organization`,
         },
       },
       {
@@ -115,7 +122,7 @@ function StructuredData() {
         name: DATA.name,
         inLanguage: "fr-FR",
         publisher: {
-          "@id": `${DATA.url}/#person`,
+          "@id": `${DATA.url}/#organization`,
         },
       },
     ],

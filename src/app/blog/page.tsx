@@ -6,7 +6,7 @@ import { Download } from "lucide-react";
 export const metadata = {
   title: "Blog",
   description:
-    "Articles sur le développement logiciel, l'automatisation et les outils sur mesure par Guillaume Chevallier, développeur freelance.",
+    "Articles du blog ITGC : développement logiciel, automatisation de processus métiers et outils sur mesure, par le studio itgcdev.fr.",
   alternates: {
     canonical: "/blog",
   },
@@ -20,7 +20,7 @@ export default async function BlogPage() {
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Guillaume's Blog</h1>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Blog ITGC</h1>
       </BlurFade>
       {posts
         .sort((a, b) => {

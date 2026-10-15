@@ -4,7 +4,7 @@ import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
-import { ResumeCard } from "@/components/resume-card";
+import CircularCarousel from "@/components/CircularCarousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
@@ -30,7 +30,7 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`Salut, moi c'est ${DATA.name.split(" ")[0]} 👋`}
+                text={`${DATA.name} — studio de développement logiciel`}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
@@ -49,7 +49,10 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold"> Votre partenaire tech sur abonnement</h2>
+          <h2 className="text-xl font-bold">
+            {" "}
+            Votre partenaire tech
+          </h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
@@ -57,62 +60,17 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Expérience</h2>
-          </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
-                key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section>
-      <section id="education">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-            >
-              <ResumeCard
-                key={education.school}
-                href={education.href}
-                logoUrl={education.logoUrl}
-                altText={education.school}
-                title={education.school}
-                subtitle={education.degree}
-                period={`${education.start} - ${education.end}`}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section>
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
+            <h2 className="text-xl font-bold">Expertises</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+              <BlurFade
+                key={skill.name}
+                delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+              >
                 <Badge href={skill.href}>{skill.name}</Badge>
               </BlurFade>
             ))}
@@ -125,13 +83,13 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Mes projets
+                  Nos réalisations
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Jetez un œil à mes apps 👀
+                  Jetez un œil à nos applications 👀
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Voici quelques-uns de mes derniers projets.
+                  Voici quelques-unes de nos dernières applications livrées.
                 </p>
               </div>
             </div>
@@ -166,15 +124,53 @@ export default function Page() {
                 Contact
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
+                Parlons de votre projet
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Vous voulez discuter de vôtre projet ? Réservez un appel de 45 minutes ici 👇
+                Vous voulez discuter de votre projet ? Réservez un appel de 45
+                minutes ici 👇
               </p>
-              <Link className="mt-3 rounded-lg bg-foreground text-background px-6 py-3 text-lg inline-flex items-center gap-2" href={"https://calendly.com/guillaumechevallier71/30min?back=1&month=2025-09"}>
+              <Link
+                className="mt-3 rounded-lg bg-foreground text-background px-6 py-3 text-lg inline-flex items-center gap-2"
+                href={
+                  "https://calendly.com/guillaumechevallier71/30min?back=1&month=2025-09"
+                }
+              >
                 <CalendarIcon className="w-5 h-5" />
                 Calendly
               </Link>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+      <section id="work">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <h2 className="text-xl font-bold">Références clients</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 17}>
+            <div className="mt-6" style={{ width: "100%", height: 180, position: "relative" }}>
+              <CircularCarousel
+                items={DATA.work.map((work) => ({
+                  src: work.logoUrl,
+                  alt: work.company,
+                  title: work.company,
+                  subtitle: work.title,
+                }))}
+                preset="cylinder"
+                intro="rise"
+                cardWidth={90}
+                aspectRatio={1}
+                gap={150}
+                speed={14}
+                captions
+                tilt={-1}
+                curve={0}
+                perspective={2960}
+                momentum={0.52}
+                innerShade={0.59}
+                cornerRadius={40}
+              />
             </div>
           </BlurFade>
         </div>
