@@ -4,14 +4,18 @@ import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
-import CircularCarousel from "@/components/CircularCarousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import DarkVeil from "@/components/DarkVeil";
+import dynamic from "next/dynamic";
 import { CalendarIcon } from "lucide-react";
+
+const CircularCarousel = dynamic(() => import("@/components/CircularCarousel"), {
+  ssr: false,
+});
+const DarkVeil = dynamic(() => import("@/components/DarkVeil"), { ssr: false });
 
 const BLUR_FADE_DELAY = 0.04;
 
