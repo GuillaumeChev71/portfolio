@@ -27,8 +27,8 @@ autoplay (~39 Mo) et le fond WebGL animé plein écran la pénalisent fortement 
 | Poste | Avant | Après |
 |---|---|---|
 | Vidéos des cartes projets | 3 × `autoPlay` (~39 Mo téléchargés dès le chargement : `sarl.mp4` 33 Mo, `masr_video.mp4` 5,9 Mo, 1 vidéo R2 externe) | `preload="none"`, lecture uniquement quand la carte est visible (IntersectionObserver) → **0 octet avant visibilité** |
-| First Load JS home | 211 Ko | **188 Ko** |
-| Chunk page home | 73 Ko | **49,3 Ko** (ogl + react-spring en chargement différé) |
+| First Load JS home | 211 Ko | **193 Ko** |
+| Chunk page home | 73 Ko | **55,3 Ko** (ogl/DarkVeil en chargement différé) |
 | Préchargement script tiers (litlyx.js) | `<link rel="preload" as="script">` | supprimé (`lazyOnload`) |
 | Fond animé DarkVeil | rendu interne à `devicePixelRatio` jusqu'à 2 | plafonné à **1,5** (jusqu'à 4× moins de pixels de shader sur mobile, rendu CSS identique) |
 | Cache navigateur (prod Apache) | aucun en-tête | `Cache-Control: max-age=31536000, immutable` sur assets, `must-revalidate` sur le HTML |
@@ -37,7 +37,7 @@ autoplay (~39 Mo) et le fond WebGL animé plein écran la pénalisent fortement 
 
 - `src/components/project-card.tsx` : composant `LazyVideo` (`preload="none"`, play/pause via IntersectionObserver, `rootMargin: 200px`). La vidéo joue en boucle dès qu'elle est à l'écran, comme avant.
 - `src/components/DarkVeil.tsx` : `dpr` plafonné à 1,5 au lieu de 2 (canvas toujours `w-full h-full`, rendu identique à l'œil).
-- `src/app/page.tsx` : `DarkVeil` et `CircularCarousel` chargés via `next/dynamic` (`ssr: false`).
+- `src/app/page.tsx` : `DarkVeil` chargé via `next/dynamic` (`ssr: false`) — ogl sort du bundle initial. `CircularCarousel` reste en rendu SSR (inchangé).
 - `src/app/layout.tsx` : script litlyx en `strategy="lazyOnload"` (plus de preload).
 - `src/components/navbar.tsx` : `aria-label` sur les liens-icônes (a11y, invisible).
 - `public/.htaccess` : en-têtes `Cache-Control` (assets 1 an immutable, HTML revalidé, xml/txt 1 h).
@@ -51,9 +51,14 @@ autoplay (~39 Mo) et le fond WebGL animé plein écran la pénalisent fortement 
 | Blog mobile | ![avant](before-blog-mobile.png) | ![après](after-blog-mobile.png) |
 | Article mobile | ![avant](before-article-mobile.png) | ![après](after-article-mobile.png) |
 
-Note : les captures home sont prises en rendu SSR (moteur JS de page désactivé côté capture, car le
-bac à sable local ne supporte pas le shader WebGL) ; les éléments animés (fond, vidéos, carrousel)
-sont inchangés par construction — seuls le `preload`, le dpr interne et le moment de chargement ont changé.
+Note sur les captures home : prises avec Firefox headless en rendu SSR (opacité des animations
+d'entrée forcée à 1), car le bac à sable local n'a pas de GPU — le voile WebGL (DarkVeil) et les
+vidéos n'y sont pas rendus, et le JS de la home y fait planter Chrome/Firefox (symptôme réel de
+sa lourdeur). Ces éléments animés sont inchangés par construction : seuls le `preload`, le dpr
+interne du canvas (toujours affiché en `w-full h-full`) et le moment de chargement ont changé.
+Les captures blog/article sont des rendus réels (Chrome headless).
+Diff pixel avant/après (pngjs) : **diffMax = 0** sur les 4 vues (home desktop 1280px, home
+mobile 390px, blog mobile, article mobile, toutes en pleine page).
 
 ## Vérifications
 

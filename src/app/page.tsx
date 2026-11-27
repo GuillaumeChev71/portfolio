@@ -9,12 +9,10 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import CircularCarousel from "@/components/CircularCarousel";
 import dynamic from "next/dynamic";
 import { CalendarIcon } from "lucide-react";
 
-const CircularCarousel = dynamic(() => import("@/components/CircularCarousel"), {
-  ssr: false,
-});
 const DarkVeil = dynamic(() => import("@/components/DarkVeil"), { ssr: false });
 
 const BLUR_FADE_DELAY = 0.04;
