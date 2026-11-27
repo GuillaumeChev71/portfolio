@@ -1,0 +1,75 @@
+---
+title: "Wisheez : simplifier la gestion des wishlists"
+publishedAt: "2025-09-19"
+summary: "Retour d'expérience sur Wisheez, une application web de gestion de wishlists pour toutes les occasions : choix techniques, architecture et fonctionnalités."
+---
+
+# Wisheez : simplifier la gestion des wishlists
+
+Chaque fin d'année, chaque anniversaire, chaque mariage, la même question revient : « Qu'est-ce que je peux bien lui offrir ? ». Les listes de cadeaux existent partout — notes sur téléphone, messages éphémères, tableaux partagés — mais aucune solution ne regroupe le tout dans un endroit simple à partager et à suivre.
+
+C'est de ce constat qu'est né **Wisheez**, une application web de gestion de wishlists pour diverses occasions. Le projet est en développement actif depuis janvier 2025.
+
+## Le concept
+
+L'idée est simple : chaque utilisateur crée des wishlists, les organise par occasion (anniversaire, Noël, mariage, liste de naissance…) et les partage avec ses proches via un lien. Les proches peuvent réserver les articles sans que le propriétaire de la liste ne le sache, afin de préserver la surprise.
+
+Les fonctionnalités principales :
+
+- **Création et gestion de plusieurs listes** par utilisateur, une par occasion.
+- **Partage par lien** : pas besoin de créer un compte pour consulter une liste.
+- **Réservation d'articles** sans en informer le propriétaire de la liste.
+- **Suivi des articles** : le propriétaire voit sa liste, les proches voient ce qui reste à offrir.
+
+## Choix techniques
+
+### Frontend : React et TypeScript
+
+Le frontend est développé en **React** avec **TypeScript**. TypeScript s'est imposé naturellement : la manipulation de données partagées entre plusieurs vues (listes, articles, réservations) bénéficie grandement du typage statique, qui évite une classe entière de bugs et documente le modèle de données à même le code.
+
+**TailwindCSS** gère le style. Le développement d'une interface à la fois propre et responsive est nettement plus rapide qu'avec du CSS classique, et la cohérence visuelle se maintient sans effort au fil des itérations.
+
+### Backend et données : PostgreSQL et Prisma
+
+Côté données, **PostgreSQL** a été retenu pour sa robustesse et la richesse de ses fonctionnalités. L'accès aux données passe par **Prisma**, dont le schéma déclaratif sert de source de vérité pour le modèle :
+
+```prisma
+model Wishlist {
+  id        String   @id @default(cuid())
+  title     String
+  occasion  String
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  items     Item[]
+  createdAt DateTime @default(now())
+}
+
+model Item {
+  id          String    @id @default(cuid())
+  name        String
+  url         String?
+  wishlistId  String
+  wishlist    Wishlist  @relation(fields: [wishlistId], references: [id])
+  reservations Reservation[]
+}
+```
+
+Ce schéma simplifié illustre la relation centrale : une wishlist appartient à un utilisateur et contient des articles, chacun pouvant être réservé par un proche.
+
+### Partage sans compte
+
+Le point sensible du produit est le partage : les proches ne doivent pas avoir à créer un compte. Chaque liste expose donc un **lien de partage unique**, qui donne accès en lecture et en réservation, sans jamais révéler qui a réservé quoi au propriétaire de la liste.
+
+## Ce que ce projet m'a appris
+
+Wisheez est avant tout un laboratoire grandeur nature :
+
+- **La modélisation des droits d'accès** : distinguer ce que voit le propriétaire d'une liste de ce que voient les proches impose une discipline dans l'API, chaque endpoint devant explicitement valider le contexte du visiteur.
+- **L'API-first** : en définissant les endpoints avant l'interface, le développement front et back a pu avancer en parallèle.
+- **Les détails qui font tout** : le message « surprise » — ne jamais révéler qui réserve quoi — influence l'ensemble du design technique, jusqu'aux réponses API.
+
+## Et ensuite
+
+Le projet est actif et continue d'évoluer. Parmi les prochaines étapes : des listes collaboratives (plusieurs propriétaires), des notifications pour les occasions à venir, et une mise en production publique.
+
+Retrouvez le projet et les autres réalisations sur la [page d'accueil](/).
