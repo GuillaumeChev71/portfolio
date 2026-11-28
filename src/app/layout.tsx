@@ -158,10 +158,9 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <Script
-        defer
         data-project="680f69468ae3ba03dc0234ae"
         src="https://cdn.jsdelivr.net/gh/litlyx/litlyx-js/browser/litlyx.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
     </html>
   );
